@@ -1,0 +1,52 @@
+version: "3.8"
+
+services:
+  sepe:
+    container_name: sepe
+    tty: true
+    build: .
+    volumes:
+      - ../:/api
+    environment:
+      - SECRET=yellow
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=sepe
+    links:
+      - sepe-postgres
+    ports:
+      - "80:80"
+
+  sepe-postgres:
+    container_name: sepe-postgres
+    image: postgres:16
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=sepe
+    volumes:
+      - ../databases/postgres-db:/var/lib/postgresql/data/
+      - ../databases/postgres-backup:/backup
+
+  # sepe-pgadmin:
+  #   container_name: sepe-pgadmin
+  #   image: dpage/pgadmin4
+  #   environment:
+  #     - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+  #     - PGADMIN_DEFAULT_PASSWORD=admin
+  #     # - PGADMIN_CONFIG_CONFIG_DATABASE_URI='postgresql://root:root@sepe-postgres:5432/sepe'
+  #   ports:
+  #     - "5050:80"
+  #   depends_on:
+  #     - sepe-postgres
+  #   links:
+  #     - sepe-postgres
+
+  # npx web-push generate-vapid-keys # Genera las llaves vapid para producción
+  # ng serve --configuration=production
+
+  # Ejecutar en la maquina host el tunel de clodflared "cloudflared tunnel run [tunel]"
+  # cloudflared tunnel run [tunel] en la carpeta ~/.cloudflared
+
+  # apk add postgresql16-client
+

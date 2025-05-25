@@ -1,0 +1,16 @@
+{
+	"name": "dev sepe",
+	"dockerComposeFile": "./docker-compose.yml",
+	"service": "sepe",
+	"workspaceFolder": "/api",
+	"shutdownAction": "stopCompose",
+	"customizations": {
+		"vscode": {
+			"settings": {},
+			"extensions": [
+				"bmewburn.vscode-intelephense-client",
+				"brapifra.phpserver"
+			]
+		}
+	}
+}
