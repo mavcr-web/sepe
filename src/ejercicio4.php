@@ -1,3 +1,10 @@
+<!-- 4. Crea una tabla en la que se muestre lo siguiente:
+
+	1 2 3 4 5
+	1 2 3 4 5
+	1 2 3 4 5 
+	1 2 3 4 5 -->
+
 <!DOCTYPE html>
 <html lang="en">
 

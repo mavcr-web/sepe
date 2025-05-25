@@ -1,3 +1,9 @@
+<!-- 1. Crea una tabla en html para que se visualice:
+	Ecabezado: días de la semana
+	Cuerpo: 4 filas con tareas a realizar en la semana
+
+La tabla, en su cuerpo, tendrá que visualizar cada fila en un color diferente -->
+
 <?php
 $dias = array('lunes', 'martes', 'miercoles', 'jueves', 'viernes');
 $tareas = array('curso', 'gimnasio', 'correr', 'cocina', 'bar');

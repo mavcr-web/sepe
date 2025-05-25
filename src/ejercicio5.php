@@ -1,6 +1,4 @@
-<?php
-// 5. Crea un formulario en el que pidas. Nombre, fecha de nacimiento, sexo, dirección, código postal y provincia. Los datos tendrás que recibirlos en un documento php y los mostrarás en pantalla
-?>
+<!-- 5. Crea un formulario en el que pidas. Nombre, fecha de nacimiento, sexo, dirección, código postal y provincia. Los datos tendrás que recibirlos en un documento php y los mostrarás en pantalla -->
 
 <!DOCTYPE html>
 <html lang="en">
