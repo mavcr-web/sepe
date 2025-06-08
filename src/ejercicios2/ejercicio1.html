@@ -1,0 +1,72 @@
+<!-- 1. Crea un documento en el que se visualice una tabla con:
+	Ecabezado: días de la semana (de lunes a viernes)
+	Cuerpo: a rellenar po el usuario con script. Lo importante es que además de poder escribir el dato en la tabla a través de los diferentes inputs, 
+	puedean también establecer el color de la celda: Hecho en verde, Rojo sin hacer -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ejercicio 1</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<center>
+		<form action="#">
+			<input type="text" name="actividad" placeholder="Actividad" required>
+			<br>
+			<input type="color" name="color" value="#108961">
+			<br>
+			<select name="dias">
+				<option>Lunes</option>
+				<option>Martes</option>
+				<option>Miercoles</option>
+				<option>Jueves</option>
+				<option>Viernes</option>
+			</select>
+			<br>
+			<button onclick="add()" type="button">Agregar</button>
+		</form>
+
+		<table border="1">
+			<tr>
+				<th>Lunes</th>
+				<th>Martes</th>
+				<th>Miercoles</th>
+				<th>Jueves</th>
+				<th>Viernes</th>
+			</tr>
+		</table>
+	</center>
+
+	<script>
+		function add() {
+			const text = $("[name=actividad]").val()
+			if (!text) {
+				return
+			}
+			const color = $("[name=color]").val()
+			const dias = $("[name=dias]").val()
+			const ths = $("th")
+			let tds = ""
+
+			for (let i = 0; i < ths.length; i++) {
+				const th = ths[i];
+				if (th.innerText == dias) {
+					tds += `<td>${text}</td>`
+				} else {
+					tds += `<td></td>`
+				}
+			}
+
+			$("table").append(
+				`<tr style='background-color: ${color}'>${tds}</tr>`
+			)
+		}
+	</script>
+</body>
+
+</html>

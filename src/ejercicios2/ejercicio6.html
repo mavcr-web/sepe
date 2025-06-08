@@ -1,0 +1,38 @@
+<!-- 6. Crea un documento en el que aparezca únicamente un input para poder escribir. Además aparecerá un botón para añadir más inputs, a gusto del usuario. 
+Sólo que tienes que limitar el máximo de 10 inputs a aparecer en la pantalla -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ejercicio 6</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+	<center>
+		<div></div>
+		<button onclick="addInput()">Añadir Campo</button>
+	</center>
+
+	<script>
+		let n = 0
+		let limit = 10
+
+		addInput()
+
+		function addInput() {
+			n++
+			if (n > limit) {
+				$("button").hide(500)
+				return
+			}
+			$("div").append(`<input type='text' name='${n}' placeholder='Escribe aqui ${n}'><br>`)
+		}
+	</script>
+</body>
+
+</html>

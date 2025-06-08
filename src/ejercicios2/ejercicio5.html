@@ -1,0 +1,31 @@
+<!-- 5. Crea un documento que contenga una imagen. Al pasar por encima de la imagen, se tendrá que cambiar el color de fondo del documento, 
+ al dejar de pasar por encima de la imagen (leave) se tendrá que volver a cambiar el color del fondo -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ejercicio 5</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+	<center>
+		<img onmouseover="highlightOn()" onmouseleave="highlightOff()" src="https://rooteiro.com/wp-content/uploads/2022/02/pulpo-feira.webp" alt="...">
+	</center>
+
+	<script>
+		function highlightOn() {
+			$("body").css('background-color', 'yellow')
+		}
+
+		function highlightOff() {
+			$("body").css('background-color', 'transparent')
+		}
+	</script>
+</body>
+
+</html>

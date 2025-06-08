@@ -1,0 +1,54 @@
+<!-- 2. Crea un documento que contenga un formulario solicitando los siguientes datos:
+	
+	Nombre, apellido1, apellido2
+	Dirección, código postal
+	Tarjeta bancaria
+	OJO, le daremos la posiblidad al usuario de poder añadir más tarjetas bancarias en caso de que lo quiera. :) -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ejercicio 2</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<center>
+		<form action="#" method="GET">
+			<input type="text" name="nombre" placeholder="Nombre" required>
+			<br>
+			<input type="text" name="primerapellido" placeholder="Primer Apellido" required>
+			<br>
+			<input type="text" name="segundoapellido" placeholder="Segundo Apellido">
+			<br>
+			<input type="text" name="direccion" placeholder="Direccion" required>
+			<br>
+			<input type="text" name="codigopostal" placeholder="Codigo Postal" required>
+			<br>
+			<div>
+				<input type="text" name="tarjetabancaria[]" placeholder="1111 2222 3333 4444" maxlength="16"
+					minlength="16" required>
+			</div>
+			<br>
+			<button onclick="addCard()" type="button">Añadir Tarjeta</button>
+			<br>
+			<button>Registrar Usuario</button>
+		</form>
+
+	</center>
+
+	<script>
+		function addCard() {
+			$("div").append(
+				`<br><input name='tarjetabancaria[]' placeholder="1111 2222 3333 4444" maxlength="16" minlength="16"
+				required>`
+			)
+		}
+	</script>
+</body>
+
+</html>

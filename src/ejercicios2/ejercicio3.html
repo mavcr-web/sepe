@@ -1,0 +1,47 @@
+<!-- 3. Crea un documento que permita escribir en un textarea:
+	
+	Al lado, aparecerá el texto escrito en un párrafo, una copia de lo que están escribiendo. 
+	Le daremos la posiblidad a las personas de poder escoger el color del texto para que se vea en el párrafo el color seleccionado
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ejercicio 3</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<div style="width: 50%; float: left;">
+		<center>
+			<label>Cambia el color del texto</label>
+			<input type="color" onchange="setColor()">
+			<br>
+			<textarea onkeyup="setText()" placeholder="Escribe aqui"></textarea>
+		</center>
+
+	</div>
+
+	<div style="width: 50%; float: left;">
+		<center>
+			<p></p>
+		</center>
+	</div>
+
+	<script>
+		function setText() {
+			const text = $("textarea").val()
+			$("p").text(text)
+		}
+
+		function setColor() {
+			const color = $("[type='color']").val()
+			$("p").css('color', color)
+		}
+	</script>
+</body>
+
+</html>

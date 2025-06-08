@@ -1,0 +1,54 @@
+<!-- 4. Crea un documento en el que le permitas al usuario:
+
+	Cambiar el color del fondo de la página
+	Crear una etiqueta H1 o H2 o H3, según sea su selección con el texto que quiera -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Ejercicio 4</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+	<center>
+		<label>Cambia el color de fondo</label>
+		<input type="color" onchange="setColor()">
+		<br>
+		<input type="text" placeholder="Escribe el encabezado">
+		<br>
+		<select name="h">
+			<option>h1</option>
+			<option>h2</option>
+			<option>h3</option>
+		</select>
+		<br>
+		<button onclick="addH()">Add</button>
+
+		<div>
+
+		</div>
+	</center>
+
+	<script>
+		function addH() {
+			const text = $("[type='text']").val()
+			const h = $("select").val()
+			$("div").append(`<${h}>${text}</${h}>`)
+
+			$("[type='text']").val('')
+			$("[type='text']").focus()
+		}
+
+		function setColor() {
+			const color = $("[type='color']").val()
+			$("body").css('background-color', color)
+		}
+	</script>
+</body>
+
+</html>
