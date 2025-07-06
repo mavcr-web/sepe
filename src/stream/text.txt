@@ -1,0 +1,10 @@
+Hola, este es el primer mensaje.
+Aquí llega el segundo mensaje.
+Tercer mensaje en camino.
+Cuarto mensaje transmitido.
+Quinto mensaje recibido.
+Sexto mensaje procesado.
+Séptimo mensaje aquí.
+Octavo mensaje disponible.
+Noveno mensaje enviado.
+Décimo y último mensaje.

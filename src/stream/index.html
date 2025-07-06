@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Streaming Chat Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    #chat {
+      border: 1px solid #ccc;
+      padding: 10px;
+      width: 400px;
+      height: 300px;
+      overflow-y: auto;
+    }
+
+    .message {
+      margin-bottom: 5px;
+      background: #f0f0f0;
+      padding: 5px;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Streaming Chat Simulation</h1>
+  <div id="chat"></div>
+
+  <script>
+    const chatDiv = document.getElementById('chat');
+
+    fetch('stream.php')
+      .then(response => {
+
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+
+        function read() {
+          return reader.read().then(({ done, value }) => {
+            if (done) {
+              console.log('Stream complete');
+              return;
+            }
+
+            const chunk = decoder.decode(value, { stream: true });
+            chunk.split(/\r?\n/).forEach(line => {
+              if (line.trim() !== '') {
+                const msgDiv = document.createElement('div');
+                msgDiv.className = 'message';
+                msgDiv.textContent = line.trim();
+                chatDiv.appendChild(msgDiv);
+                chatDiv.scrollTop = chatDiv.scrollHeight;
+              }
+            });
+
+            return read();
+          });
+        }
+
+        return read();
+      })
+      .catch(err => console.error('Fetch error:', err));
+  </script>
+</body>
+
+</html>
